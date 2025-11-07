@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "dynein": "^0.6.0"
+  },
+  "name": "pedros-really-cool-website",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "concurrently": "^9.2.1",
+    "esbuild": "^0.25.12",
+    "http-server": "^14.1.1",
+    "sass": "^1.93.3",
+    "typescipt": "^1.0.0"
+  },
+  "scripts": {
+    "build": "esbuild ./src/app.ts --bundle --sourcemap --outfile=./public/dist/bundle.js --watch",
+    "style": "sass ./src/styles.scss ./public/dist/bundle.css --source-map --watch",
+    "serve": "http-server -c-1 -p 8000",
+    "dev": "concurrently \"npm run build\" \"npm run style\" \"npm run serve\""
+  },
+  "keywords": [],
+  "author": "Pedro dos Santos",
+  "license": "ISC"
+}
