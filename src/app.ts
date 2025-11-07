@@ -1,23 +1,20 @@
 import * as D from "dynein"
+import * as router from "./router"
+import * as pages from "./pages"
 
-const { p, button, img } = D.elements
-const $ = D.createSignal
+const { p } = D.elements
 
 D.createRoot(() => {
     D.mountBody(() => {
-        p("Pedro's Really Cool Website")
 
-        const clicks = $(0)
-        button({
-            onMouseDown: () => {
-                clicks(clicks() + 1)
-            }
-        }, "Click Me!!")
-
-        D.addDynamic(() => {
-            p(clicks())
+        D.addIf(router.pageIs(""), () => {
+            pages.index()
+        }).elseif(router.pageIs("about"), () => {
+            pages.about()
+        }).elseif(router.pageIs("warning"), () => {
+            pages.warning()
+        }).else(() => {
+            p("Unknown Page")
         })
-
-        img({ src: "favicon.svg", style: "width: 512px; height: 512px" })
     })
 })
