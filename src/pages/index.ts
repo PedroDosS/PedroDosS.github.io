@@ -2,7 +2,7 @@ export * from "./about"
 export * from "./warning"
 
 import * as D from "dynein"
-import * as router from "../router"
+import * as router from "../utils/router"
 
 const { p, button, img } = D.elements
 const $ = D.createSignal

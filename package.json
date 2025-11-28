@@ -11,15 +11,14 @@
     "@types/node": "^24.10.0",
     "concurrently": "^9.2.1",
     "esbuild": "^0.25.12",
-    "http-server": "^14.1.1",
     "sass": "^1.93.3",
     "typescipt": "^1.0.0"
   },
   "scripts": {
     "build": "esbuild ./src/app.ts --bundle --sourcemap --outfile=./public/dist/bundle.js --watch",
+    "serve": "esbuild ./src/app.ts --bundle --sourcemap --outfile=./public/dist/bundle.js --watch --serve --servedir=./public",
     "style": "sass ./src/styles.scss ./public/dist/bundle.css --source-map --watch",
-    "serve": "http-server -c-1 -p 8000",
-    "dev": "concurrently \"npm run build\" \"npm run style\" \"npm run serve\""
+    "dev": "concurrently \"npm run style\" \"npm run serve\""
   },
   "keywords": [],
   "author": "Pedro dos Santos",

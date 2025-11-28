@@ -1,7 +1,7 @@
 import * as D from "dynein"
-import * as router from "./router"
+import * as router from "./utils/router"
 import * as pages from "./pages"
-import * as cookies from "./cookies"
+import * as cookies from "./utils/cookies"
 
 const { p } = D.elements
 
@@ -14,7 +14,7 @@ D.createRoot(() => {
             router.replace("") // Otherwise prevent seening the warning page
         }
 
-        D.addIf(router.pageIs(""), () => {
+        D.addIf(router.pageIs(/(index)?$/), () => {
             pages.index()
         }).elseif(router.pageIs("about"), () => {
             pages.about()

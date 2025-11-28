@@ -1,6 +1,6 @@
 import * as D from "dynein"
-import * as router from "../router"
-import * as cookies from "../cookies"
+import * as router from "../utils/router"
+import * as cookies from "../utils/cookies"
 
 const { p, button } = D.elements
 
