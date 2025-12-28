@@ -1,5 +1,8 @@
 //                       Ex: /about.html => about.html => about
-const location = window.location.pathname.substring(1).replace(/\.html$/mi, "")
+const location = window.location.pathname.substring(1).replace(/\.html$/, "")
+
+const { protocol, hostname, port } = window.location
+export const url = `${protocol}//${hostname}:${port}`
 
 // Reload the page when the user hits the 'back button'
 window.addEventListener('popstate', () => {
@@ -43,6 +46,6 @@ export function replace(path: string): void {
         path += ".html"
     }
 
-    const { protocol, hostname, port } = window.location
-    window.location.replace(`${protocol}//${hostname}:${port}/${path}`)
+
+    window.location.replace(`${url}/${path}`)
 }
