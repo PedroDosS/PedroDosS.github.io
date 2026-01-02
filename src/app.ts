@@ -22,6 +22,8 @@ D.createRoot(() => {
             pages.index()
         }).elseif(router.pageIs("about"), () => {
             pages.about()
+        }).elseif(router.pageIs("projects"), () => {
+            pages.projects()
         }).elseif(router.pageIs("warning"), () => {
             pages.warning()
         }).else(() => {

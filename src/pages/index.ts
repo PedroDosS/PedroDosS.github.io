@@ -1,13 +1,16 @@
 export * from "./about"
 export * from "./warning"
+export * from "./projects"
 
 import * as D from "dynein"
 import * as router from "../utils/router"
+import { header } from "../components"
 
 const { p, button, img } = D.elements
 const $ = D.createSignal
 
 export function index(): void {
+    header()
     p("Pedro's Really Cool Website")
 
     const clicks = $(0)

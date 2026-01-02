@@ -1,13 +1,13 @@
 import * as D from "dynein"
 import * as router from "../utils/router"
 
-const { a, div, img } = D.elements
+const { a, div, img, nav } = D.elements
 const $ = D.createSignal
 
-export default function header() {
+export function header() {
     const url = router.url
 
-    div({ class: "header" }, () => {
+    nav({ class: "header" }, () => {
         a({ href: url }, () => {
             img({
                 class: "header-image",
