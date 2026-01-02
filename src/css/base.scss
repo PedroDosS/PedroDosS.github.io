@@ -1,0 +1,39 @@
+$color-text: #3D2412;
+$color-primary: #3D2412;
+$color-secondary: #cf84f7;
+$color-accent: #f341dd;
+$color-background: #f7f2ec;
+
+@mixin font($size, $weight: 400) {
+    //font-color: $color-text;
+    font-family: "Sono", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "MONO" 1;
+    font-size: $size;
+    font-weight: $weight;
+}
+
+body {
+    background-color: $color-background;
+    overflow-x: hidden;
+    margin: 0em;
+
+    @include font(larger, 600);
+
+    .container-vertical {
+        display: flex;
+        align-items: center;
+        flex-flow: column wrap;
+    }
+
+    .container-horizontal {
+        display: flex;
+        align-items: center;
+        flex-flow: row wrap;
+    }
+
+    p {
+        color: green;
+    }
+}

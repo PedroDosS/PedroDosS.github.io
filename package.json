@@ -17,7 +17,7 @@
   "scripts": {
     "build": "esbuild ./src/app.ts --bundle --sourcemap --outfile=./public/dist/bundle.js --watch",
     "serve": "esbuild ./src/app.ts --bundle --sourcemap --outfile=./public/dist/bundle.js --watch --serve --servedir=./public",
-    "style": "sass ./src/styles.scss ./public/dist/bundle.css --source-map --watch",
+    "style": "sass ./src/css/index.scss ./public/dist/bundle.css --source-map --watch",
     "dev": "concurrently \"npm run style\" \"npm run serve\""
   },
   "keywords": [],
