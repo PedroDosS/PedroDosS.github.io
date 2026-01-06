@@ -1,29 +1,44 @@
 import * as D from "dynein"
 
-const { div, p } = D.elements
+const { div, p, header, a, section } = D.elements
 
 type ProjectCardType = {
     title: string,
-    description: string,
-    img: () => HTMLImageElement,
+    figure: () => HTMLImageElement,
+    description: string | string[],
+    stack?: string[]
     reversed?: boolean
+    link?: string
 }
 
-export function projectCard({ title, description, img, reversed }: ProjectCardType) {
+export function projectCard({ title, description, figure, reversed, stack, link }: ProjectCardType) {
+
     div({
-        class: "project-card",
-        style: `${reversed ? "flex-direction: row-reverse; " : ""}`// border: 1px red solid`
+        class: "project-card" + (reversed ? " reverse" : "")
     }, () => {
-        img()
+        figure()
 
-        div({
-            //style: "border: 1px blue dashed"
-        }, () => {
-            p({ class: "title" }, title)
-            p({ class: "description" }, description)
+        section({}, () => {
+            if (link !== undefined) {
+                a({ class: "title", href: link }, () => {
+                    header(title)
+                })
+            } else {
+                header({ class: "title" }, title)
+            }
+
+            for (const paragraph of listify(description)) {
+                p({ class: "description" }, paragraph)
+            }
+
+            if (stack !== undefined) {
+                p({ class: "stack" }, "Stack: " + stack.join(", "))
+            }
         })
-
-
-
     })
+}
+
+// If maybelList is a single element, wrap it in an array
+function listify<T>(maybeList: T | T[]): T[] {
+    return [].concat(maybeList)
 }
