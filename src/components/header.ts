@@ -1,23 +1,21 @@
 import * as D from "dynein"
 import * as router from "../utils/router"
 
-const { a, div, img, nav } = D.elements
+const { a, img, nav } = D.elements
 const $ = D.createSignal
 
-export function header() {
-    const url = router.url
-
-    nav({ class: "header" }, () => {
-        a({ href: url }, () => {
+export function header(style?: any) {
+    nav({ class: "header", style }, () => {
+        a({ href: "index.html" }, () => {
             img({
                 class: "header-image",
-                href: url,
-                src: "assets/favicon.svg"
+                src: "assets/headshot.png"
             })
         })
 
-        a({ class: "header-button", href: `${url}` }, "Home")
-        a({ class: "header-button", href: `${url}/about.html` }, "About")
-        a({ class: "header-button", href: `${url}/projects.html` }, "Projects")
+        a({ class: "header-button", href: "index.html" }, "Home")
+        a({ class: "header-button", href: "about.html" }, "About")
+        a({ class: "header-button", href: "projects.html" }, "Projects")
+        a({ class: "header-button", href: "index.html" }, "Blog")
     })
 }

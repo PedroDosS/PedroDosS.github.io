@@ -1,41 +1,54 @@
 @use 'base.scss';
 @use 'sass:color';
 
+// TODO: Lots of magic numbers
 .header {
     @extend .container-horizontal;
 
-    width: 100vw;
-    gap: 0.6em;
-    padding: 0.3em;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: calc(100% - 0.6rem);
+    z-index: 9999;
+
+    gap: 0.8rem;
+    padding: 0.8rem;
+    margin: 0;
 
     // Make eet pretty
-    fill-opacity: 100;
-    box-shadow: 0px 5px 10px 1px gray; // TODO: Edges look weird
+    box-shadow: 0px 5px 10px 1px #06110b;
+    background-color: rgb(from #0a2718 r g b / 70%);
+    backdrop-filter: blur(30px);
 
     .header-button {
-        border: 2px solid base.$color-primary;
-        border-radius: 15%;
-        padding: 0.3em;
+        padding: 0.5rem;
 
-        color: base.$color-primary;
-        background-color: color.adjust($color: base.$color-primary, $lightness: 70%);
-        text-decoration: none;
+        color: base.$color-text-light;
+        font-size: 1.5rem;
+
+        filter: drop-shadow(3px 3px 5px #000000);
 
         &:hover {
-            filter: brightness(90%);
-            //background-color: color.adjust($color: $color-primary, $lightness: 60%);
+            filter: brightness(80%) drop-shadow(9px 9px 5px #000000);
+            transform: translate(0, -3px)
         }
     }
 
     .header-image {
         @extend .header-button;
 
-        display: block;
-        width: 2.6em;
+        width: 4rem;
         padding: 0;
 
+        border-radius: 1rem;
+        border: 3px solid base.$color-text-light;
+        display: block;
+
+        filter: drop-shadow(3px 3px 5px #000000);
+
         &:hover {
-            filter: brightness(80%);
+            filter: brightness(80%) drop-shadow(9px 9px 5px #000000);
+            transform: translate(0, -3px)
         }
     }
 }
