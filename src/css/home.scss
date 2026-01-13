@@ -1,0 +1,96 @@
+@use "base.scss";
+@use "sass:color";
+
+.column {
+    @extend .container-horizontal;
+
+    width: 100vw;
+    justify-content: center;
+    min-height: 100vh;
+
+    background: url("/assets/ferns.jpeg");
+
+    color: base.$color-text-light;
+
+    .home {
+        @extend .container-vertical;
+
+        width: 100%;
+        max-width: 1000px;
+
+        gap: 2rem;
+        padding: 3rem;
+        border-radius: 0.5rem;
+
+        background-color: rgb(from base.$color-background r g b / 50%);
+        backdrop-filter: blur(5px);
+        filter: drop-shadow(0 0 2rem black);
+    }
+
+    .bio {
+        @extend .container-horizontal;
+
+        justify-content: center;
+
+        gap: 3rem;
+
+        .headshot {
+            max-width: 300px;
+
+            border: 3px solid base.$color-text-light;
+            border-radius: 100%;
+
+            filter: drop-shadow(0 0 1rem black);
+        }
+
+        .title {
+            font-size: 7rem;
+            filter: drop-shadow(0 0 0.3rem black);
+        }
+
+        .description {
+            font-size: 1.3rem;
+            font-weight: 400;
+            filter: drop-shadow(0 0 0.3rem black);
+        }
+    }
+
+    .directory {
+        @extend .container-horizontal;
+
+        gap: 1em;
+
+        .directory-item {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            flex: 1 1 40%;
+            align-self: stretch;
+
+            color: base.$color-text-dark;
+            text-align: center;
+            text-decoration: none;
+
+            background: base.$color-text-light;
+            border: 4px solid #0c2b1a;
+
+
+            filter: drop-shadow(3px 3px 3px darkgreen);
+
+            &:hover {
+                filter: drop-shadow(9px 9px 3px darkgreen);
+                transform: translate(-3px, -3px);
+            }
+
+            .title {
+                font-size: 1.5em;
+                text-justify: center;
+                text-decoration: underline;
+            }
+
+            .description {
+                text-decoration: none;
+            }
+        }
+    }
+
+}

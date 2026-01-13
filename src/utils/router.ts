@@ -14,13 +14,11 @@ window.addEventListener('popstate', () => {
  * @param path The page to check
  * @returns A boolean function specifying if the user is on the given page
  */
-export function pageIs(path: string | RegExp): () => boolean {
-    return () => {
-        if (path instanceof RegExp) {
-            return path.test(location)
-        } else {
-            return path === location
-        }
+export function pageIs(path: string | RegExp): boolean {
+    if (path instanceof RegExp) {
+        return path.test(location)
+    } else {
+        return path === location
     }
 }
 

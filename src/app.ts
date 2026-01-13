@@ -8,26 +8,27 @@ const seenWarning = cookies.getOrDefault("seenWarning", false)
 
 D.createRoot(() => {
     D.mountBody(() => {
-        // Show warning if the user hasn't seen it already
-        if (!seenWarning && !router.pageIs("warning")()) {
+        //Show warning if the user hasn't seen it already
+        if (!seenWarning && !router.pageIs("warning")) {
             router.replace("warning")
         }
 
         // Prevent seeing the warning page if it's already been seen
-        if (seenWarning && router.pageIs("warning")()) {
+        if (seenWarning && router.pageIs("warning")) {
             router.replace("")
         }
 
-        D.addIf(router.pageIs(/^(index)?$/), () => {
-            pages.index()
-        }).elseif(router.pageIs("about"), () => {
+
+        if (router.pageIs(/^(index|home)?$/)) {
+            pages.home()
+        } else if (router.pageIs("about")) {
             pages.about()
-        }).elseif(router.pageIs("projects"), () => {
+        } else if (router.pageIs("projects")) {
             pages.projects()
-        }).elseif(router.pageIs("warning"), () => {
+        } else if (router.pageIs("warning")) {
             pages.warning()
-        }).else(() => {
-            p("Unknown Page")
-        })
+        } else {
+            p("Unknown page")
+        }
     })
 })
