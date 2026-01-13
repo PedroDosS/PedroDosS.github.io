@@ -38,7 +38,7 @@ export function projects(): void {
                 link("GitHub Pages", "https://sass-lang.com")
             ],
             img: () => img({
-                src: "/assets/projects/celeste2.png"
+                src: "/assets/projects/website.png"
             }),
             reversed: true
         })
@@ -48,12 +48,12 @@ export function projects(): void {
             description: "I’ve (not-so-) recently fallen into the home-labbing rabbithole, and finally had the chance to set one up myself. Although I’m operating on a college student budget, I currently self-host a network-wide adblocker, NAS, and media server, all while following the 3-2-1 backup rule.",
             stack: [
                 link("Tailscale", "https://tailscale.com/"),
-                link("Jellyfin", "https://jellyfin.org/"),
+                link("Docker", "https://www.docker.com/"),
                 link("Pi-hole", "https://pi-hole.net/"),
                 link("Backblaze B2", "https://www.backblaze.com/cloud-storage")
             ],
             img: () => img({
-                src: "/assets/projects/celeste1.png"
+                src: "/assets/projects/homelab-dark.png"
             }),
         })
 
